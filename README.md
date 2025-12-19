@@ -78,6 +78,36 @@ Performing the two mentioned statistical tests to all the available categorical 
 + PhysHlth_Bin
 <img width="1364" height="269" alt="image" src="https://github.com/user-attachments/assets/4bbc9a39-4d30-4ec2-a9c6-4ec161e1b6a4" />
 
+# Model Building
+| Model | Accuracy (test set) | Precision (class 1) | Recall (class 1) | AUC |
+| :--------: | :--------: | :--------: | :--------: | :--------: |
+| Decision Tree | 🟥 73.7% | 🟥 0.711 | 🟧 0.797 | 🟩 0.82 |
+| Random Forest | 🟨 75.1% | 🟩 0.729 | 🟧 0.798 | 🟩 0.83 |
+| GradBoost | 🟨 75.0% | 🟥 0.716 | 🟩 0.826 | 🟥 0.75 |
+| CatBoost | 🟩 75.6% | 🟩 0.733 | 🟨 0.802 | 🟩 0.83 |
+| Logistic Regression | 🟩 75.4% | 🟩 0.728 | 🟨 0.804 | 🟩 0.82 |
+| KNN | 🟧 74.2% | 🟨 0.720 | 🟥 0.790 | 🟩 0.82 |
+
+# Hyperparameter tuning and cross validation
+<p align="justify">
+Cross-validation (5-fold) is applied in this project to reduce overfitting when predicting diabetes risk. By evaluating the models across multiple training and validation folds, performance is assessed on unseen patient data rather than a single split. This helps ensure that the models capture generalizable patterns related to diabetes risk instead of noise in the training data. As a result, the final models provide more reliable and robust predictions compared to the baseline models.
+</p>
+
+<p align="center">
+  <img width="506" height="402" alt="image" src="https://github.com/user-attachments/assets/8f8a16e0-0023-4574-8acd-3743c6b5ed2f" />
+</p>
+
+For the full hyperparameter tuning and revaluation process, refer to the notebooks above. The below shows only a snippet of what this stage entails.
+
++ Determining the optimal k (number of nearest neighbors) for the KNN model
+<img width="759" height="310" alt="image" src="https://github.com/user-attachments/assets/a4d0e9b9-17dc-48f2-953c-38376ce72428" />
+
++ Assessing how well the logistic regression model's predicted probabilities align with the true likelihood of the positive class after adding/removing certain features.
+<img width="507" height="353" alt="image" src="https://github.com/user-attachments/assets/ab98bedf-6251-4bbf-b530-f8fdcafc0522" />
+
+
+
+
 
 
 
